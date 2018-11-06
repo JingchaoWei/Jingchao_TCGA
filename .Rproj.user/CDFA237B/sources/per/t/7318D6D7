@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1541546163471.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "7318D6D7",
+    "lastKnownWriteTime" : 1541546181,
+    "last_content_update" : 1541546181439,
+    "path" : "~/GitHub/Jingchao_TCGA/RTCGAToolbox.R",
+    "project_path" : "RTCGAToolbox.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
