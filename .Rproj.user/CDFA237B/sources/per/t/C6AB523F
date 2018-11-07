@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1541547663654.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "719880325",
+    "id" : "C6AB523F",
+    "lastKnownWriteTime" : 1541551762,
+    "last_content_update" : 1541551762699,
+    "path" : "~/GitHub/Jingchao_TCGA_PRAD/TCGA_prostate.R",
+    "project_path" : "TCGA_prostate.R",
+    "properties" : {
+        "cursorPosition" : "9,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,13 +1,12 @@
 # Mon Oct 29 17:17:30 2018 ------------------------------
 
 rm(list=ls())
-exp <- read.delim("data/HiSeqV2/HiSeqV2",row.names = 1, check.names = F)
-phe <- read.delim("data/PRAD_clinicalMatrix/PRAD_clinicalMatrix",check.names = F)
+exp <- read.delim2("data_Xena/HiSeqV2.gz",row.names = 1, check.names = F )
+phe <- read.delim2("data_Xena/PRAD_clinicalMatrix/PRAD_clinicalMatrix",check.names = F)
 exp_t <- as.data.frame(t(exp))
 exp_t$sampleID <- rownames(exp_t)
 merge <- merge(phe,exp_t,by="sampleID",all=F)
-merge_t <- as.data.frame(t(merge))
-save(exp,phe,merge,merge_t,file = "PCa_TCGA.Rdata")
+save(exp,phe,merge,file = "PCa_TCGA.Rdata")
 write.table(merge,file = "combined_TCGA_data.txt",quote = F,sep = "\t",row.names = F,col.names = T)
 
 
