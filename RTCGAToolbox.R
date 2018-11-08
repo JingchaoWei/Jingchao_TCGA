@@ -38,4 +38,3 @@ getSurvival(dataObject=RTCGASample, geneSymbols=c("FCGBP"), sampleTimeCensor=sur
 
 
 
-
