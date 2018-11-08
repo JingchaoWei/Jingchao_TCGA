@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1541558212341.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "FBF8F0BA",
+    "lastKnownWriteTime" : 1541636100,
+    "last_content_update" : 1541636100207,
+    "path" : "~/GitHub/Jingchao_TCGA_PRAD/RTCGAToolbox.R",
+    "project_path" : "RTCGAToolbox.R",
+    "properties" : {
+        "cursorPosition" : "33,61",
+        "scrollLine" : "16"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
