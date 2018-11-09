@@ -1,0 +1,5 @@
+ADRA1A
+CXCL12
+PPP1R1A
+# high group: the expression of the 3 genes in these samples is higher than its corresponding median in all samples
+# low group: the expression of the 3 genes in these samples is lower than or equal to its corresponding median in all samples

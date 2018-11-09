@@ -1,7 +1,8 @@
 # Mon Oct 29 17:17:30 2018 ------------------------------
 
 rm(list=ls())
-exp <- read.delim2("data_Xena/HiSeqV2.gz",row.names = 1, check.names = F )
+exp <- read.delim2("data_Xena/HiSeqV2.gz",row.names = 1, check.names = F,dec = '.',
+                   colClasses = c('character',rep('numeric',550)))
 phe <- read.delim2("data_Xena/PRAD_clinicalMatrix/PRAD_clinicalMatrix",check.names = F)
 exp_t <- as.data.frame(t(exp))
 exp_t$sampleID <- rownames(exp_t)

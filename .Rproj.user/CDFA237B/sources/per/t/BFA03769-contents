@@ -1,0 +1,74 @@
+# Thu Nov 08 15:13:40 2018 ------------------------------
+rm(list = ls())
+load('PCa_TCGA.Rdata')
+marker <- c('ADRA1A','CXCL12','PPP1R1A')
+data <- merge[,c('sampleID',marker)]
+attach(data)
+high_group <- subset(data,
+                     subset = ADRA1A>median(ADRA1A) & CXCL12>median(CXCL12) &
+                       PPP1R1A>median(PPP1R1A),select = 1)
+high_group$group <- rep('high',139)
+low_group <- subset(data,
+                    subset = ADRA1A<=median(ADRA1A) & CXCL12<=median(CXCL12) &
+                    PPP1R1A<=median(PPP1R1A),select = 1)
+low_group$group <- rep('low',136)
+group <- rbind(high_group,low_group)
+detach(data)
+write.table(high_group,'High_group_3_markers.txt',quote = F,sep = '\t',row.names = F,col.names = T)
+write.table(low_group,'Low_group_3_markers.txt',quote = F,sep = '\t',row.names = F,col.names = T)
+write.table(marker,'3_markers.txt',quote = F,sep = '\t',row.names = F,col.names = F)
+
+#t test
+MyTtest <- function(gene){
+  data1 <- merge[match(group$sampleID,merge$sampleID),c('sampleID',gene)]
+  data1 <- merge(data1,group,by='sampleID',all=F)
+  group1 <- subset(data1,subset = data1$group=='high',select = gene)[[gene]]
+  group2 <- subset(data1,subset = data1$group=='low',select = gene)[[gene]]
+  #var equal test
+  var(group1)
+  var(group2)
+  if (var(group1)==0&var(group2)==0) {
+    print(gene)
+  } else{
+    var.test(group1,group2)
+    tmp <- ifelse(var.test(group1,group2)$p.value>=0.05,"TRUE","FALSE")
+    t.test(group1,group2,paired = F,var.equal = as.logical(tmp))
+    pvalue_ttest <- t.test(group1,group2,paired = F)$p.value
+    mean <- aggregate(data1[[gene]],by=list(data1$group),FUN=mean)
+    mean$type <- rep('mean',2)
+    sd <- aggregate(data1[[gene]],by=list(data1$group),FUN=sd)
+    sd$type <- rep('sd',2)
+    result <- rbind(mean,sd)
+    result$gene <- rep(gene,4)
+    result$p.value <- rep(pvalue_ttest,4)
+    return(result)
+  }
+}
+
+gene <- rownames(exp)
+
+#检查基因名是否存在于数据库
+colnames <- colnames(merge)
+istrue <- vector()
+for (i in gene) {
+  findit <- isTRUE(i %in% colnames)
+  istrue <- c(istrue,findit)
+}
+unique(istrue)
+
+#利用循环，将每个基因的结果汇总
+sum <- data.frame(Group.1=character(),
+                      x=numeric(),
+                      type=character(),
+                      gene=character(),
+                      p.value=numeric())
+for (j in gene) {
+  tmp <- MyTtest(j) 
+  sum <- rbind(sum,tmp)
+}
+sum
+
+sig <- sum[sum$p.value<0.05,]
+sig.genes <- unique(sum$gene)
+
+
