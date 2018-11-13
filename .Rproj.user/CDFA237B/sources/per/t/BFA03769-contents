@@ -70,5 +70,5 @@ sum
 
 sig <- sum[sum$p.value<0.05,]
 sig.genes <- unique(sum$gene)
-
+sig.genes
 

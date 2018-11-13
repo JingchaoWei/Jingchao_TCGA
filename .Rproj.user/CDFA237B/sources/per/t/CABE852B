@@ -13,7 +13,7 @@
     "project_path" : "TCGA_prostate.R",
     "properties" : {
         "cursorPosition" : "80,25",
-        "scrollLine" : "69"
+        "scrollLine" : "0"
     },
     "relative_order" : 2,
     "source_on_save" : false,
