@@ -69,6 +69,40 @@ for (j in gene) {
 sum
 
 sig <- sum[sum$p.value<0.05,]
-sig.genes <- unique(sum$gene)
+sig.genes <- unique(sig$gene)
 sig.genes
+
+
+#figure out whether it's higher in Group.1 or Group.2 for each gene in sig.genes
+MyComparison <- function(a){
+  b <- sig[sig$gene==a,]
+  value_groupHigh <- subset(b,subset = b$type=='mean'&b$Group.1=='high',select = 'x')[1,1]
+  value_groupLow <- subset(b,subset = b$type=='mean'&b$Group.1=='low',select = 'x')[1,1]
+  tmp <- as.numeric(value_groupHigh)-as.numeric(value_groupLow)
+  comparison <- ifelse(tmp > 0,'higher in Group_High','higher in Group_Low')
+  c <- data.frame(gene=a,append=comparison)
+  return(c)
+}
+
+sig.genes_new <- data.frame(gene=character(),append=character(),stringsAsFactors = F)
+for (a in sig.genes) {
+  tmp <- MyComparison(a)
+  sig.genes_new <- rbind(sig.genes_new,tmp)
+}
+sig.genes_new <- sig.genes_new[order(sig.genes_new$append),]
+sig.genes_new
+
+save(sig.genes_new,sig.genes,sum,group,file = 'Sig.genes.Rdata')
+
+
+#find different features between 2 groups
+load('Sig.genes.Rdata')
+load('PCa_TCGA.Rdata')
+phe_group <- merge(group,phe,by= 'sampleID',all=F)
+group_low <- phe_group[phe_group$group=='low',]
+group_high <- phe_group[phe_group$group=='high',]
+table(group_high$gleason_score)
+table(group_low$gleason_score)
+
+
 

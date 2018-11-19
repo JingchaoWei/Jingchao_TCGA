@@ -25,7 +25,7 @@ library(gridExtra)
              title='Overall Survival',combine = T)
   rf <- ggsurvplot(sfit_2, conf.int=F, pval=TRUE,data = merge,
                    title="Recurrence/Disease Free Survival",combine = T)
-  arrange_ggsurvplots(x = list(oa,rf),title = gene,nrow = 1,ncol = 2)
+  arrange_ggsurvplots(x = list(oa,rf),title = 'gene',nrow = 1,ncol = 2)
   print(paste0('Is ',gene,' in the dataset?  ',a))
   survival_data <- merge[,c('OS.time','OS','RFS.time','RFS',gene)]
   write.table(survival_data,file = paste0(gene,"_Survival_data.txt"),
