@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2285191833",
+    "hash" : "3328616680",
     "id" : "983AE14F",
-    "lastKnownWriteTime" : 1544472004,
-    "last_content_update" : 1544472004465,
+    "lastKnownWriteTime" : 1544474158,
+    "last_content_update" : 1544474158179,
     "path" : "~/GitHub/Jingchao_TCGA_PRAD/Sample_stratification.R",
     "project_path" : "Sample_stratification.R",
     "properties" : {
-        "cursorPosition" : "13,33",
+        "cursorPosition" : "9,35",
         "scrollLine" : "0",
         "tempName" : "Untitled1"
     },

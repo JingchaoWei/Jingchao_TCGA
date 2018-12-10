@@ -107,8 +107,8 @@ b <- table(group_low$gleason_score)
 c <- rbind(a,b)
 c
 par(mfrow=c(2,1))
-plot(a)
-plot(b)
+barplot(a)
+barplot(b)
 chisq.test(c)#if got any warning, better to use fishertest
 fisher.test(c)
 p <- fisher.test(c)$p.value
@@ -120,8 +120,20 @@ b <- table(group_low$biochemical_recurrence)
 c <- rbind(a,b)
 c
 par(mfrow=c(2,1))
-plot(a)
-plot(b)
+barplot(a)
+barplot(b)
+chisq.test(c)#if got any warning, better to use fishertest
+fisher.test(c)
+p <- fisher.test(c)$p.value
+format(p,scientific = F)# use non-scientific format, easier to read
+
+a <- table(group_high$followup_treatment_success)
+b <- table(group_low$followup_treatment_success)
+c <- rbind(a,b)
+c
+par(mfrow=c(2,1))
+barplot(a)
+barplot(b)
 chisq.test(c)#if got any warning, better to use fishertest
 fisher.test(c)
 p <- fisher.test(c)$p.value
