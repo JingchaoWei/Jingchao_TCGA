@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1544466216879.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2285191833",
+    "id" : "983AE14F",
+    "lastKnownWriteTime" : 1544472004,
+    "last_content_update" : 1544472004465,
+    "path" : "~/GitHub/Jingchao_TCGA_PRAD/Sample_stratification.R",
+    "project_path" : "Sample_stratification.R",
+    "properties" : {
+        "cursorPosition" : "13,33",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
